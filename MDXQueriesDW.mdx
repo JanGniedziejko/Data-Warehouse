@@ -1,0 +1,97 @@
+SELECT
+  [Measures].[AVGsatisfaction] ON COLUMNS,
+  [Dim Courses].[Year Range].Members ON ROWS
+FROM DW
+
+SELECT
+  [Measures].[AVGsatisfaction] ON COLUMNS,
+  [Dim Courses].[Course ID].Members ON ROWS
+FROM DW
+
+SELECT
+  [Measures].[AVGresult] ON COLUMNS,
+  [Dim Students].[Family Status].Members ON ROWS
+FROM DW
+
+WITH 
+SET [TopStudentsMay] AS 
+  TOPCOUNT(
+    [Dim Students].[Student ID].Members,
+    5,
+    ([Dim Date].[Month].[May], [Measures].[AVGresult])
+  )
+SET [TopStudentsJune] AS 
+  TOPCOUNT(
+    [Dim Students].[Student ID].Members,
+    5,
+    ([Dim Date].[Month].[June], [Measures].[AVGresult])
+  )
+SELECT 
+  {TopStudentsMay, TopStudentsJune} ON COLUMNS, 
+  NON EMPTY {
+    ([Dim Date].[Year].[2023], [Dim Date].[Month].[May]),
+    ([Dim Date].[Year].[2023], [Dim Date].[Month].[June])
+  } ON ROWS 
+FROM DW
+
+
+SELECT
+	[Measures].[AVGresult] ON COLUMNS,
+	[Dim Date].[Date Hierarchy].[Year].&[2017].Children ON ROWS
+FROM DW
+
+SELECT
+  [Dim Subjects].[Name].Members ON COLUMNS,
+{ [Dim Date].[Date].&[2023-03-01T00:00:00], [Dim Date].[Date].&[2023-02-01T00:00:00], [Dim Date].[Date].[Ratio]} ON ROWS
+FROM DW
+WHERE  [Measures].[AVGresult]
+
+
+SELECT 
+  { [Dim Date].[Date].&[2023-03-01T00:00:00], [Dim Date].[Date].&[2023-02-01T00:00:00]} ON COLUMNS,
+  {[Measures].[AVGattendance], [Measures].[AVGresult]} ON ROWS
+FROM DW
+
+SELECT
+{
+  ([Measures].[AVGresult],[Dim Courses].[Course ID]),
+  ([Measures].[AVGsatisfaction],[Dim Courses].[Course ID])
+} ON COLUMNS,
+{ 
+  FILTER(
+    [Dim Students].[Student ID].Members,
+    (
+      NOT IsEmpty(([Measures].[AVGresult],[Dim Courses].[Course ID].&[4])) AND
+      NOT IsEmpty(([Measures].[AVGsatisfaction],[Dim Courses].[Course ID].&[4]))
+    )
+  )
+} ON ROWS
+FROM DW
+
+
+WITH SET TopTeachingMethods AS
+  TOPCOUNT([Dim Teachers].[Teaching Method].Members, 1, [Measures].[AVGresult])
+SELECT
+  {[Measures].[AVGresult]} ON COLUMNS,
+  TopTeachingMethods ON ROWS
+FROM DW
+
+WITH SET TopProfiles AS
+  TOPCOUNT([Dim Classes].[Profile].Members, 1, [Measures].[AVGresult])
+SELECT
+  {[Measures].[AVGresult]} ON COLUMNS,
+  TopProfiles ON ROWS
+FROM DW
+
+SELECT
+  [Measures].[AVGresult] ON COLUMNS,
+ [Dim Teachers].[Year Of Employment].Members ON ROWS
+FROM DW
+
+SELECT
+  [Measures].[AVGresult] ON COLUMNS,
+  [Dim Classes].[Profile].Members ON ROWS
+FROM DW
+WHERE  ([Dim Date].[Semester].[Summer], [Dim Date].[Year].[2023] )
+
+
