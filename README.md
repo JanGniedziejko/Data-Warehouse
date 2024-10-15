@@ -7,7 +7,7 @@
 - Make a design of Data Warehouse and present the measures and dimensions that you need for each analytical question
 - Implement Data Warehouse ( ETL + SSIS ) and set everything up (measures, KPIs, etc.)
 - Create MDX queries
-- Data Warehouse Optimization Report ( MOLAP, ROLAP, HOLAP with and without aggregations)
+- Data Warehouse Optimization Report ( MOLAP, ROLAP, HOLAP with and without aggregations) 
 - Data Visualization using PowerBI
 
 ## Data Warehouse designed for High School
