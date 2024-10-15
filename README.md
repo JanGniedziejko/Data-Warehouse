@@ -24,7 +24,3 @@
    - Data Warehouse Optimization Report ( MOLAP, ROLAP, HOLAP with and without aggregations)
 8. [Power BI]()
    - Data Visualization using PowerBI
-
-## Data Warehouse designed for High School
-
-
