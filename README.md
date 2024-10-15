@@ -14,7 +14,7 @@
 3. [Data Warehouse Design](https://github.com/JanGniedziejko/Data-Warehouse/blob/main/Data%20Warehouse%20Design.pdf)
    - Make a design of Data Warehouse and the structure of it
    - Describe measures and dimensions tables
-   - For each analytical problem (query),
+   - For each analytical problem (query), describe the measures, aggregations, dimensions that you need to use
 4. [BULK INSERTS + ETL]()
    - Insert tuples into database (BULK INSERTS)   
    - Implement Data Warehouse ( ETL + SSIS ) and set everything up (measures, KPIs, etc.)
