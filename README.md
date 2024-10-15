@@ -2,9 +2,9 @@
 
 ### The project consisted of following steps:
 1. [Report_1 - Organisation's description + business processes](https://github.com/JanGniedziejko/Data-Warehouse/blob/main/ProcessesSpecifiation.pdf) | [Report_2 - Database + Excel structure + analytical problems (queries)](https://github.com/JanGniedziejko/Data-Warehouse/blob/main/RequirementsProsessSpecification-2.pdf)
-    - Find an organisation that we will design a data warehouse for (in this case High School [this high school does not exist btw])
-    - Come up with 2 main business processes, KPI's, 2 SMART Goals, and how the data is stored (1st - Database | 2nd - Excel)
-2. [Data Generator Script](https://github.com/JanGniedziejko/Data-Warehouse/blob/main/Data_Generator.py)
+   - Find an organisation that we will design a data warehouse for (in this case High School [this high school does not exist btw])
+   - Come up with 2 main business processes, KPI's, 2 SMART Goals, and how the data is stored (1st - Database | 2nd - Excel)
+3. [Data Generator Script](https://github.com/JanGniedziejko/Data-Warehouse/blob/main/Data_Generator.py)
   - Design the database and excel file from the scratch + create a data generator that will fill up the database and excel (for 2 distinct Time Snapshots) : 
 
 - Make a design of Data Warehouse and present the measures and dimensions that you need for each analytical question
